@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Jai Parmani — Apps</title>
+<style>
+  :root{
+    --bg:#0b0c0f;
+    --panel:#14161b;
+    --border:#232630;
+    --ink:#e8e9ec;
+    --dim:#8b8f9a;
+    --faint:#5a5e6a;
+    --accent:#7c9fff;
+    --live:#5fd98a;
+    --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Inter",system-ui,sans-serif;
+  }
+  @media (prefers-color-scheme: light){
+    :root{
+      --bg:#f7f7f9;
+      --panel:#ffffff;
+      --border:#e3e4e9;
+      --ink:#1a1b1f;
+      --dim:#6a6d78;
+      --faint:#9a9da6;
+      --accent:#3b5fe0;
+      --live:#1f9e56;
+    }
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.5;
+    padding:56px 20px 80px;
+  }
+  .wrap{max-width:880px;margin:0 auto}
+  header{margin-bottom:48px}
+  .kicker{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--faint);
+    margin:0 0 10px;
+  }
+  h1{
+    font-size:clamp(28px,5vw,40px);
+    margin:0 0 12px;
+    font-weight:600;
+    letter-spacing:-0.01em;
+  }
+  header p{
+    color:var(--dim);
+    font-size:15px;
+    max-width:560px;
+    margin:0;
+  }
+  section{margin-bottom:44px}
+  .section-title{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--faint);
+    margin:0 0 16px;
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+  }
+  .section-title::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:var(--border);
+  }
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+    gap:14px;
+  }
+  a.card{
+    display:block;
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:18px 18px 16px;
+    text-decoration:none;
+    color:var(--ink);
+    transition:border-color .15s ease, transform .15s ease;
+  }
+  a.card:hover{
+    border-color:var(--accent);
+    transform:translateY(-1px);
+  }
+  .card-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:6px;
+  }
+  .card-name{
+    font-weight:600;
+    font-size:16px;
+  }
+  .status{
+    display:flex;
+    align-items:center;
+    gap:5px;
+    font-family:var(--mono);
+    font-size:10px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:var(--faint);
+  }
+  .status .dot{
+    width:6px;height:6px;border-radius:50%;
+    background:var(--live);
+    box-shadow:0 0 0 3px color-mix(in srgb, var(--live) 20%, transparent);
+  }
+  .card-desc{
+    color:var(--dim);
+    font-size:13.5px;
+    margin-bottom:12px;
+  }
+  .card-url{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--accent);
+    word-break:break-all;
+  }
+  .infra{
+    background:transparent;
+    border:1px dashed var(--border);
+  }
+  .infra .card-name{color:var(--dim)}
+  .infra .status .dot{background:var(--faint);box-shadow:none}
+  footer{
+    margin-top:60px;
+    padding-top:20px;
+    border-top:1px solid var(--border);
+    color:var(--faint);
+    font-size:12.5px;
+    font-family:var(--mono);
+  }
+  footer a{color:var(--dim);text-decoration:none}
+  footer a:hover{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p class="kicker">jaiparmani</p>
+    <h1>Apps</h1>
+    <p>Everything I've built and actually run, in one place. Most of it shares one memory store — <a href="https://github.com/jaiparmani/brain-store" style="color:var(--accent);text-decoration:none">brain</a> — instead of each app keeping its own copy of what it knows about me.</p>
+  </header>
+
+  <section>
+    <p class="section-title">brain ecosystem</p>
+    <div class="grid">
+      <a class="card" href="https://brain.brain-store.workers.dev" target="_blank" rel="noopener">
+        <div class="card-top">
+          <span class="card-name">Brain</span>
+          <span class="status"><span class="dot"></span>live</span>
+        </div>
+        <p class="card-desc">Long-term memory for LLMs. Every fact is a Markdown file in a private repo; search, browse and edit it from the web UI.</p>
+        <p class="card-url">brain.brain-store.workers.dev</p>
+      </a>
+
+      <a class="card" href="https://brain-chat.brain-store.workers.dev" target="_blank" rel="noopener">
+        <div class="card-top">
+          <span class="card-name">Brain Chat</span>
+          <span class="status"><span class="dot"></span>live</span>
+        </div>
+        <p class="card-desc">A personal ChatGPT that already knows you — pulls context from Brain before every reply, and can remind you over Telegram.</p>
+        <p class="card-url">brain-chat.brain-store.workers.dev</p>
+      </a>
+
+      <a class="card" href="https://life-rpg.brain-store.workers.dev" target="_blank" rel="noopener">
+        <div class="card-top">
+          <span class="card-name">Life RPG</span>
+          <span class="status"><span class="dot"></span>live</span>
+        </div>
+        <p class="card-desc">A game engine over the same memory store. Real actions become XP, quests, goals and a weekly boss.</p>
+        <p class="card-url">life-rpg.brain-store.workers.dev</p>
+      </a>
+
+      <a class="card" href="https://llm-gateway.brain-store.workers.dev" target="_blank" rel="noopener">
+        <div class="card-top">
+          <span class="card-name">LLM Gateway</span>
+          <span class="status"><span class="dot"></span>live</span>
+        </div>
+        <p class="card-desc">One place for provider keys, rotation and JSON salvaging. Every app above calls models through this instead of holding its own key.</p>
+        <p class="card-url">llm-gateway.brain-store.workers.dev</p>
+      </a>
+
+      <div class="card infra">
+        <div class="card-top">
+          <span class="card-name">Telegram Router</span>
+          <span class="status"><span class="dot"></span>infra</span>
+        </div>
+        <p class="card-desc">Webhook-only. Routes the shared Telegram bot's messages to Brain Chat, Life RPG or ToolBox — no UI of its own.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="section-title">other</p>
+    <div class="grid">
+      <a class="card" href="https://jaiparmani.github.io/Portfolio/" target="_blank" rel="noopener">
+        <div class="card-top">
+          <span class="card-name">Portfolio</span>
+          <span class="status"><span class="dot"></span>live</span>
+        </div>
+        <p class="card-desc">Personal site and resume — who I am, what I've built, how to reach me.</p>
+        <p class="card-url">jaiparmani.github.io/Portfolio</p>
+      </a>
+
+      <a class="card" href="https://jaiparmani.github.io/meridian-city/" target="_blank" rel="noopener">
+        <div class="card-top">
+          <span class="card-name">Meridian City</span>
+          <span class="status"><span class="dot"></span>live</span>
+        </div>
+        <p class="card-desc">An organisation rendered as a living city — projects are towers, tasks are traffic, blockers are jams you have to clear.</p>
+        <p class="card-url">jaiparmani.github.io/meridian-city</p>
+      </a>
+
+      <a class="card" href="https://nexus-field.brain-store.workers.dev" target="_blank" rel="noopener">
+        <div class="card-top">
+          <span class="card-name">Nexus Field</span>
+          <span class="status"><span class="dot"></span>live</span>
+        </div>
+        <p class="card-desc">A generative field of light you steer with the pointer — no backend, pure canvas.</p>
+        <p class="card-url">nexus-field.brain-store.workers.dev</p>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <a href="https://github.com/jaiparmani" target="_blank" rel="noopener">github.com/jaiparmani</a>
+  </footer>
+</div>
+</body>
+</html>
